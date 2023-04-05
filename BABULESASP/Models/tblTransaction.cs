@@ -11,13 +11,16 @@ namespace BABULESASP.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblTransaction
     {
         public int Id { get; set; }
         public string tr_categorie { get; set; }
         public string tr_type { get; set; }
         public Nullable<decimal> tr_sum { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}",
+               ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> tr_date { get; set; }
         public string tr_description_ { get; set; }
     }

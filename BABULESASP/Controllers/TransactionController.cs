@@ -38,8 +38,9 @@ namespace BABULESASP.Controllers
         // GET: Transaction/Create
         public ActionResult Create()
         {
-            List<string> tblategories = (from data in db.tblCategories select data.ct_name.Distinct<>).ToList();
-            ViewBag.CategoriesListforName = new SelectList(tblategories);
+            List<string> tblcategories = (from data in db.tblCategories select data.ct_name).ToList();
+            IEnumerable<string> distinctAges = tblcategories.Distinct().ToList();
+            ViewBag.CategoriesListforName = new SelectList(distinctAges);
             return View();
         }
 
@@ -50,8 +51,9 @@ namespace BABULESASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,tr_categorie,tr_type,tr_sum,tr_date,tr_description_")] tblTransaction tblTransaction)
         {
-            List<string> tblategories = (from data in db.tblCategories select data.ct_name).ToList();
-            ViewBag.CategoriesListforName = new SelectList(tblategories);
+            List<string> tblcategories = (from data in db.tblCategories select data.ct_name).ToList();
+            IEnumerable<string> distinctAges = tblcategories.Distinct().ToList();
+            ViewBag.CategoriesListforName = new SelectList(distinctAges);
             if (ModelState.IsValid)
             {
                 db.tblTransactions.Add(tblTransaction);
@@ -65,6 +67,9 @@ namespace BABULESASP.Controllers
         // GET: Transaction/Edit/5
         public ActionResult Edit(int? id)
         {
+            List<string> tblcategories = (from data in db.tblCategories select data.ct_name).ToList();
+            IEnumerable<string> distinctAges = tblcategories.Distinct().ToList();
+            ViewBag.CategoriesListforName = new SelectList(distinctAges);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +89,9 @@ namespace BABULESASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,tr_categorie,tr_type,tr_sum,tr_date,tr_description_")] tblTransaction tblTransaction)
         {
+            List<string> tblcategories = (from data in db.tblCategories select data.ct_name).ToList();
+            IEnumerable<string> distinctAges = tblcategories.Distinct().ToList();
+            ViewBag.CategoriesListforName = new SelectList(distinctAges);
             if (ModelState.IsValid)
             {
                 db.Entry(tblTransaction).State = EntityState.Modified;
