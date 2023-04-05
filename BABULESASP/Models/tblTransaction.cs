@@ -20,7 +20,7 @@ namespace BABULESASP.Models
         public string tr_type { get; set; }
 
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0.N}")]
-        [Range(typeof(decimal), "5.0", "100.6", ErrorMessage = "Наименьшая цена - 5 рублей")]
+        [Range(typeof(decimal), "5.0", "1000000.00")]
         public Nullable<decimal> tr_sum { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}",
                ApplyFormatInEditMode = true)]
