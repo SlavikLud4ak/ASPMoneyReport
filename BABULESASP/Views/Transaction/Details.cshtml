@@ -1,0 +1,58 @@
+﻿@model BABULESASP.Models.tblTransaction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblTransaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tr_categorie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tr_categorie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tr_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tr_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tr_sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tr_sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tr_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tr_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tr_description_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tr_description_)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

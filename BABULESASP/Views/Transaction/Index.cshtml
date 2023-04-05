@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BABULESASP.Models.tblTransaction>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tr_categorie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tr_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tr_sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tr_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tr_description_)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tr_categorie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tr_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tr_sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tr_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tr_description_)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
